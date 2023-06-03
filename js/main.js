@@ -53,6 +53,8 @@ const boxElm = document.createElement('div');
 boxElm.classList.add('box');
 document.getElementById('background').append(boxElm);
 
+
+
 document.body.addEventListener('click', ()=> document.body.requestFullscreen());
 
 let jump = false;
@@ -82,8 +84,10 @@ document.body.addEventListener('keydown', (eventData)=> {
         boxElm.style.width='250px';
         attack=true;
 
-    }else if(eventData.code=='KeyD'){
+    }else if(eventData.code==='KeyD'){
         dead=true;
+    }else if(eventData.code==='Space'){
+        boxElm.style.width='150px';
     }
    
 
@@ -107,14 +111,9 @@ document.body.addEventListener('keyup', (eventData) => {
         boxElm.style.width='100px';
         attack=false;
     }else if(eventData.code==='KeyT'){
-        thrw=true;
+        thrw=false;
     }else if(eventData.code==='Space'){
-        
-        if(boxElm.style.bottom>'70px'){
-            boxElm.style.width='150px';
-        }else if(boxElm.style.bottom==='70px'){
-            boxElm.style.width='100px';
-        }
+        setTimeout(()=>{boxElm.style.width='100px'},500);
         
         
     }
@@ -206,10 +205,7 @@ setInterval(()=>{
 
 })
 
-
-
-
-
+/*Moving Background */
 
 var backgroundPosition = 0;
 var backgroundSpeed = 0; 
@@ -227,27 +223,47 @@ function moveBackground() {
 }
 
 
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowLeft") {
-    backgroundSpeed = -2; 
+document.addEventListener("keydown", (eventData)=> {
+  if (eventData.key === "ArrowLeft") {
+    backgroundSpeed = -3; 
     
+  }else if(eventData.key === "ArrowRight"){
+    backgroundSpeed = 3;
   }
 });
 
 
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowRight") {
-    backgroundSpeed = 2;
-    
-  }
-});
 
-
-document.addEventListener("keyup", function(event) {
-  backgroundSpeed = 0; 
+document.addEventListener("keyup", (eventData)=> {
+    if (eventData.code === "ArrowLeft") {
+        backgroundSpeed = 0; 
+        
+      }else if(eventData.code === "ArrowRight"){
+        backgroundSpeed = 0;
+      }
 });
 
 moveBackground();
 background.style.backgroundRepeat = "repeat-x";
 
 
+/*create enamies*/
+let enmMargin=2000;
+createEnamies();
+
+function createEnamies(){
+
+    for(var i=0;i<=10;i++){
+        const enmElm1=document.createElement('div');
+        enmElm1.classList.add('enm');
+        document.getElementById('background').append(enmElm1);
+        enmElm1.style.marginLeft=enmMargin+'px';
+    if(i<5){
+        enmMargin=enmMargin+1000;
+    }else if(i>=5){
+        enmMargin=enmMargin+500;
+    }
+}
+
+
+}

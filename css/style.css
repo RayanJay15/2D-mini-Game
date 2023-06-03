@@ -31,3 +31,15 @@ body {
     background-repeat: no-repeat;
     bottom: 70px;
 }
+
+.enm{
+    position: absolute;
+    width:300px;
+    height:200px;
+    position: absolute;
+    background-image: url('../img/enm2.gif'); 
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 70px;
+
+}
