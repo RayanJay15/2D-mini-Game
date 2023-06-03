@@ -48,7 +48,7 @@ for(let i = 0; i < 10; i++){
     image.src  = `img/Run__00${i}.png`;
 }
 
-
+var background = document.getElementById("background");
 const boxElm = document.createElement('div');
 boxElm.classList.add('box');
 document.getElementById('background').append(boxElm);
@@ -94,7 +94,7 @@ document.body.addEventListener('keydown', (eventData)=> {
 
 
 document.body.addEventListener('keyup', (eventData) => {
-s
+
     if (eventData.code === 'ArrowRight'){
         boxElm.style.width='100px';
         run = false;
@@ -205,3 +205,49 @@ setInterval(()=> {
 setInterval(()=>{
 
 })
+
+
+
+
+
+
+var backgroundPosition = 0;
+var backgroundSpeed = 0; 
+
+
+function moveBackground() {
+  
+  backgroundPosition += backgroundSpeed;
+  
+ 
+  background.style.backgroundPositionX = backgroundPosition + "px";
+  
+
+  requestAnimationFrame(moveBackground);
+}
+
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowLeft") {
+    backgroundSpeed = -2; 
+    
+  }
+});
+
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowRight") {
+    backgroundSpeed = 2;
+    
+  }
+});
+
+
+document.addEventListener("keyup", function(event) {
+  backgroundSpeed = 0; 
+});
+
+moveBackground();
+background.style.backgroundRepeat = "repeat-x";
+
+
