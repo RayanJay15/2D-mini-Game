@@ -48,12 +48,16 @@ body {
 #score{
     width: 300px;
     height: 100px;
-    background-color: dodgerblue;
-    border:5px dashed brown;
-    border-radius: 5px;
+    background-color: rgb(20, 177, 20);
+    border:5px dashed rgb(80, 18, 18);
+    border-radius: 50% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0.8;
     font-size: 50px;
     font-weight: bold;
     font-style: Ubuntu;
     text-align: center;
+    
 }
