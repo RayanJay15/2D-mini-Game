@@ -34,13 +34,15 @@ body {
 
 .enm{
     position: absolute;
-    width:100px;
+    width: 150px;
     height:100px;
-     /* background-image: url('../img/enm2.gif');   */
-     background-color: blue;
+      background-image: url('../img/flame.gif');   
+     /* background-color: blue; */
     left: 1000px; 
-  
-    bottom: 70px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 90px;
+    transform: rotateY('90dec');
 
 }
 
@@ -64,20 +66,20 @@ body {
 
 .enm2{
     position: absolute;
-    width: 200px;
+    width: 150px;
     height: 200px;
     top: 10px;
     left: 1100px;
     /* background-color: black; */
     background-image:url('../img/enm3.gif'); 
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 
 }
 
 .enm3{
     position: absolute;
-    width: 200px;
+    width: 150px;
     height: 200px;
     top: 10px;
     left: 700px;
@@ -88,7 +90,7 @@ body {
 
 .enm4{
     position: absolute;
-    width: 200px;
+    width: 150px;
     height: 200px;
     top: 10px;
     left: 350px;
