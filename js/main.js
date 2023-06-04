@@ -90,8 +90,6 @@ document.body.addEventListener('keydown', (eventData)=> {
         boxElm.style.width='150px';
     }
    
-
-    console.log(eventData);
     
 });
 
@@ -189,7 +187,7 @@ setInterval(()=> {
         drawIdle();
     }else if (jump){
         drawJump();
-    }else if (!jump && !attack && run){
+    }else if (!jump && run){
         drawRun();
     }else if (!run && attack){
         drawAttack();
@@ -248,7 +246,7 @@ background.style.backgroundRepeat = "repeat-x";
 
 
 /*create enamies*/
-let enmMargin=2000;
+let enmMargin=1000;
 createEnamies();
 
 function createEnamies(){
@@ -258,12 +256,68 @@ function createEnamies(){
         enmElm1.classList.add('enm');
         document.getElementById('background').append(enmElm1);
         enmElm1.style.marginLeft=enmMargin+'px';
+        enmElm1.id='enmElm1'+i;
     if(i<5){
         enmMargin=enmMargin+1000;
     }else if(i>=5){
         enmMargin=enmMargin+500;
     }
+    // function moveEnamie(){
+    //         let dx=-2;
+    //           let x=enmElm1.offsetLeft+dx
+    //              enmElm1.style.left=`${x}px`;
+            
+    //         }
+        
+    //    setInterval(moveEnamie,10);
+}
 }
 
-
+var enmElm1AnimationId=0;
+function enmElm1Animation(){
+    for(var i=0;i<=10;i++){
+        var enmElm1=document.getElementById("enmElm1"+i);
+        var currentMarginLeft=getComputedStyle(enmElm1).marginLeft;
+        var newMarginLeft=parseInt(currentMarginLeft)-25;
+        enmElm1.style.marginLeft=newMarginLeft+'px';
+    }
 }
+
+if(enmElm1AnimationId==0){
+    enmElm1AnimationId=setInterval(enmElm1Animation,100);
+}
+
+// function repeatEnamies(){
+
+//     let enamiePosition=2000;
+//     const enm2=document.createElement('div');
+//     enm2.classList.add('enm');
+//     document.getElementById('background').append(enm2);
+
+//     function moveEnamie(){
+//         let dx=-2;
+//         let x=enm2.offsetLeft+dx
+//         enm2.style.left=`${x}px`;
+    
+//     }
+
+//     setInterval(moveEnamie,10);
+ 
+
+// }
+
+
+// setInterval(repeatEnamies,3000)
+
+
+
+
+
+
+
+
+
+
+
+
+
