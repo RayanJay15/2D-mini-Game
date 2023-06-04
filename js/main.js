@@ -416,6 +416,12 @@ if(y>800)enm4.style.top='10px';
 setInterval(moveEnamie4, 50);
 
 
+const mainEnm = document.createElement('div');
+mainEnm.classList.add('mainEnm');
+document.getElementById('background').append(mainEnm);
+
+
+
 
 
 

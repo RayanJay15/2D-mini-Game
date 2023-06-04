@@ -66,10 +66,10 @@ body {
 
 .enm2{
     position: absolute;
-    width: 150px;
-    height: 200px;
+    width: 120px;
+    height: 160px;
     top: 10px;
-    left: 1100px;
+    left: 900px;
     /* background-color: black; */
     background-image:url('../img/enm3.gif'); 
     background-repeat: no-repeat;
@@ -79,24 +79,36 @@ body {
 
 .enm3{
     position: absolute;
-    width: 150px;
-    height: 200px;
+    width: 120px;
+    height: 160px;
     top: 10px;
-    left: 700px;
+    left: 600px;
     background-image:url('../img/enm3.gif'); 
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .enm4{
     position: absolute;
-    width: 150px;
-    height: 200px;
+    width: 120px;
+    height: 160px;
     top: 10px;
-    left: 350px;
+    left: 300px;
     background-image:url('../img/enm3.gif'); 
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+
+}
+
+.mainEnm{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    bottom: 0;
+    left: 1000px;
+    background-image:url('../img/main2.gif'); 
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
