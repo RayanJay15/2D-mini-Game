@@ -38,9 +38,8 @@ body {
     height:100px;
      /* background-image: url('../img/enm2.gif');   */
      background-color: blue;
-    /* left: 1000px; */
-    background-size: contain;
-    background-repeat: no-repeat;
+    left: 1000px; 
+  
     bottom: 70px;
 
 }
@@ -61,3 +60,41 @@ body {
     text-align: center;
     
 }
+
+
+.enm2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 10px;
+    left: 1100px;
+    /* background-color: black; */
+    background-image:url('../img/enm3.gif'); 
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.enm3{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 10px;
+    left: 700px;
+    background-image:url('../img/enm3.gif'); 
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.enm4{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 10px;
+    left: 350px;
+    background-image:url('../img/enm3.gif'); 
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+

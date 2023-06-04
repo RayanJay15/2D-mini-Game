@@ -260,61 +260,61 @@ background.style.backgroundRepeat = "repeat-x";
 
 
 /*create enamies*/
-let enmMargin=1000;
-createEnamies();
+// let enmMargin=1000;
+// createEnamies();
 
-function createEnamies(){
+// function createEnamies(){
 
-    for(var i=0;i<=10;i++){
-        const enmElm1=document.createElement('div');
-        enmElm1.classList.add('enm');
-        document.getElementById('background').append(enmElm1);
-        enmElm1.style.marginLeft=enmMargin+'px';
-        enmElm1.id='enmElm1'+i;
-    if(i<5){
-        enmMargin=enmMargin+1000;
-    }else if(i>=5){
-        enmMargin=enmMargin+500;
-    }
+//     for(var i=0;i<=10;i++){
+//         const enmElm1=document.createElement('div');
+//         enmElm1.classList.add('enm');
+//         document.getElementById('background').append(enmElm1);
+//         enmElm1.style.marginLeft=enmMargin+'px';
+//         enmElm1.id='enmElm1'+i;
+//     if(i<5){
+//         enmMargin=enmMargin+1000;
+//     }else if(i>=5){
+//         enmMargin=enmMargin+500;
+//     }
    
-    // function moveEnamie(){
-    //         let dx=-2;
-    //           let x=enmElm1.offsetLeft+dx
-    //              enmElm1.style.left=`${x}px`;
+//     // function moveEnamie(){
+//     //         let dx=-2;
+//     //           let x=enmElm1.offsetLeft+dx
+//     //              enmElm1.style.left=`${x}px`;
             
-    //         }
+//     //         }
         
-    //    setInterval(moveEnamie,10);
-}
-}
+//     //    setInterval(moveEnamie,10);
+// }
+// }
 
-var enmElm1AnimationId=0;
-var newMarginLeft;
+// var enmElm1AnimationId=0;
+// var newMarginLeft;
 
-function enmElm1Animation(){
-    for(var i=0;i<=10;i++){
-        var enmElm1=document.getElementById("enmElm1"+i);
-        var currentMarginLeft=getComputedStyle(enmElm1).marginLeft;
-        newMarginLeft=parseInt(currentMarginLeft)-25;
-        enmElm1.style.marginLeft=newMarginLeft+'px';
+// function enmElm1Animation(){
+//     for(var i=0;i<=10;i++){
+//         var enmElm1=document.getElementById("enmElm1"+i);
+//         var currentMarginLeft=getComputedStyle(enmElm1).marginLeft;
+//         newMarginLeft=parseInt(currentMarginLeft)-25;
+//         enmElm1.style.marginLeft=newMarginLeft+'px';
       
-    }
-}
+//     }
+// }
 
-if(enmElm1AnimationId==0){
-    enmElm1AnimationId=setInterval(enmElm1Animation,100);
+// if(enmElm1AnimationId==0){
+//     enmElm1AnimationId=setInterval(enmElm1Animation,100);
    
-}
+// }
 
-if (
-    boxElm.right >= enmElm1.left &&
-    boxElm.left <= enmElm1.right &&
-    boxElm.bottom >= enmElm1.top &&
-    boxElm.top <= enmElm1.bottom
-  ) {
-    enmElm1AnimationId=-1;
-    clearInterval(enmElm1Animation);
-  };
+// if (
+//     boxElm.right >= enmElm1.left &&
+//     boxElm.left <= enmElm1.right &&
+//     boxElm.bottom >= enmElm1.top &&
+//     boxElm.top <= enmElm1.bottom
+//   ) {
+//     enmElm1AnimationId=-1;
+//     clearInterval(enmElm1Animation);
+//   };
    
 
 
@@ -342,6 +342,83 @@ if (
 
 
 // setInterval(repeatEnamies,3000)
+
+
+/*Enamie one*/
+const enm1 = document.createElement('div');
+enm1.classList.add('enm');
+document.getElementById('background').append(enm1);
+
+function moveEnamie1() {
+  let dx=-2;
+  let y = enm1.offsetLeft;
+  if(y<=0)enm1.style.left='1000px';
+  let x = enm1.offsetLeft + dx;
+  enm1.style.left = `${x}px`;
+}
+
+
+setInterval(moveEnamie1, 15);
+if(enm1.offsetLeft<=200){
+    clearInterval(moveEnamie1);
+}
+
+
+
+/*Enamie two*/
+const enm2 = document.createElement('div');
+enm2.classList.add('enm2');
+document.getElementById('background').append(enm2);
+
+function moveEnamie2() {
+  let dy=2;
+  let y = enm2.offsetTop;
+ 
+if(y>800)enm2.style.top='10px';
+   
+  let x = enm2.offsetTop + dy;
+  enm2.style.top = `${x}px`;
+}
+
+setInterval(moveEnamie2, 20);
+
+const enm3 = document.createElement('div');
+enm3.classList.add('enm3');
+document.getElementById('background').append(enm3);
+
+function moveEnamie3() {
+  let dy=2;
+  let y = enm3.offsetTop;
+ 
+if(y>800)enm3.style.top='10px';
+   
+  let x = enm3.offsetTop + dy;
+  enm3.style.top = `${x}px`;
+}
+
+setInterval(moveEnamie3, 35);
+
+
+const enm4 = document.createElement('div');
+enm4.classList.add('enm4');
+document.getElementById('background').append(enm4);
+
+function moveEnamie4() {
+  let dy=2;
+  let y = enm4.offsetTop;
+ 
+if(y>800)enm4.style.top='10px';
+   
+  let x = enm4.offsetTop + dy;
+  enm4.style.top = `${x}px`;
+}
+
+setInterval(moveEnamie4, 50);
+
+
+
+
+
 
 
 
