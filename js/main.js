@@ -85,6 +85,8 @@ document.body.addEventListener('keydown', (eventData)=> {
         attack=true;
 
     }else if(eventData.code==='KeyD'){
+        boxElm.style.width='200px';
+
         dead=true;
     }else if(eventData.code==='Space'){
         boxElm.style.width='150px';
@@ -108,8 +110,9 @@ document.body.addEventListener('keyup', (eventData) => {
     }else if(eventData.code ==='KeyE'){
         boxElm.style.width='100px';
         attack=false;
-    }else if(eventData.code==='KeyT'){
-        thrw=false;
+    }else if(eventData.code==='KeyD'){
+        dead=false;
+        boxElm.style.width='100px';
     }else if(eventData.code==='Space'){
         setTimeout(()=>{boxElm.style.width='100px'},500);
         
@@ -194,6 +197,8 @@ setInterval(()=> {
     }else if (!run && jump && !attack && !dead){
         drawJump();
         
+    }else if(dead){
+        drawDead();
     }
 
 } , (1000/20));
@@ -207,6 +212,7 @@ setInterval(()=>{
 
 var backgroundPosition = 0;
 var backgroundSpeed = 0; 
+var score=0;
 
 
 function moveBackground() {
@@ -218,10 +224,18 @@ function moveBackground() {
   
 
   requestAnimationFrame(moveBackground);
+  
+  
 }
 
 
+
+
+
 document.addEventListener("keydown", (eventData)=> {
+    score=score+1;
+    document.getElementById('score').innerHTML="Score : "+score;
+  
   if (eventData.key === "ArrowLeft") {
     backgroundSpeed = -3; 
     
@@ -262,6 +276,7 @@ function createEnamies(){
     }else if(i>=5){
         enmMargin=enmMargin+500;
     }
+   
     // function moveEnamie(){
     //         let dx=-2;
     //           let x=enmElm1.offsetLeft+dx
@@ -274,18 +289,37 @@ function createEnamies(){
 }
 
 var enmElm1AnimationId=0;
+var newMarginLeft;
+
 function enmElm1Animation(){
     for(var i=0;i<=10;i++){
         var enmElm1=document.getElementById("enmElm1"+i);
         var currentMarginLeft=getComputedStyle(enmElm1).marginLeft;
-        var newMarginLeft=parseInt(currentMarginLeft)-25;
+        newMarginLeft=parseInt(currentMarginLeft)-25;
         enmElm1.style.marginLeft=newMarginLeft+'px';
+      
     }
 }
 
 if(enmElm1AnimationId==0){
     enmElm1AnimationId=setInterval(enmElm1Animation,100);
+   
 }
+
+if (
+    boxElm.right >= enmElm1.left &&
+    boxElm.left <= enmElm1.right &&
+    boxElm.bottom >= enmElm1.top &&
+    boxElm.top <= enmElm1.bottom
+  ) {
+    enmElm1AnimationId=-1;
+    clearInterval(enmElm1Animation);
+  };
+   
+
+
+
+
 
 // function repeatEnamies(){
 
@@ -308,6 +342,9 @@ if(enmElm1AnimationId==0){
 
 
 // setInterval(repeatEnamies,3000)
+
+
+
 
 
 
