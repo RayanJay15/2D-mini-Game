@@ -30,6 +30,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     bottom: 70px;
+    border: 1px solid black;
 }
 
 .enm{

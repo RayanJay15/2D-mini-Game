@@ -3,18 +3,18 @@ for(let i = 0; i <= 9; i++){
     const image = new Image();
     image.src  = `img/Attack__00${i}.png`;
 }
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Climb_00${i}.png`;
-}
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Climb_00${i}.png`;
+// }
 for(let i = 0; i < 10; i++){
     const image = new Image();
     image.src  = `img/Dead__00${i}.png`;
 }
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Glide_00${i}.png`;
-}
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Glide_00${i}.png`;
+// }
 for(let i = 0; i < 10; i++){
     const image = new Image();
     image.src  = `img/Idle__00${i}.png`;
@@ -23,30 +23,30 @@ for(let i=0;i<10;i++){
     const image=new Image();
     image.src =`img/Jump__00${i}.png`;
 }
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Jump_Attack__00${i}.png`;
-}
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Jump_Throw__00${i}.png`;
-}
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Run__00${i}.png`;
-}
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Slide__00${i}.png`;
-}
-for(let i = 0; i < 10; i++){
-    const image = new Image();
-    image.src  = `img/Throw__00${i}.png`;
-}
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Jump_Attack__00${i}.png`;
+// }
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Jump_Throw__00${i}.png`;
+// }
 for(let i = 0; i < 10; i++){
     const image = new Image();
     image.src  = `img/Run__00${i}.png`;
 }
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Slide__00${i}.png`;
+// }
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Throw__00${i}.png`;
+// }
+// for(let i = 0; i < 10; i++){
+//     const image = new Image();
+//     image.src  = `img/Run__00${i}.png`;
+// }
 
 var background = document.getElementById("background");
 const boxElm = document.createElement('div');
@@ -55,7 +55,7 @@ document.getElementById('background').append(boxElm);
 
 
 
-document.body.addEventListener('click', ()=> document.body.requestFullscreen());
+// document.body.addEventListener('click', ()=> document.body.requestFullscreen());
 
 let jump = false;
 let run = false;
@@ -63,9 +63,20 @@ let attack=false;
 let jumpAttack=false;
 let dead=false;
 
+
 let dx = 0;
 
+/*Add background audio*/ 
+
+
 document.body.addEventListener('keydown', (eventData)=> {
+    console.log("keydown");
+    if(dead){
+        boxElm.style.width='200px';
+        jump=false;
+        run=false;
+        attack=false;
+      }else{
     if (eventData.code === 'Space'){
         boxElm.style.width='150px';
         jump = true;
@@ -74,6 +85,7 @@ document.body.addEventListener('keydown', (eventData)=> {
         boxElm.style.width='150px';
         run = true;
         dx = 2;
+        // console.log(boxElm.offsetLeft);
     }else if (eventData.code === 'ArrowLeft'){
         boxElm.style.transform = 'rotateY(180deg)';
         boxElm.style.width='150px';
@@ -85,19 +97,26 @@ document.body.addEventListener('keydown', (eventData)=> {
         attack=true;
 
     }else if(eventData.code==='KeyD'){
-        boxElm.style.width='200px';
+        boxElm.style.width='200px';Nayani
 
         dead=true;
     }else if(eventData.code==='Space'){
         boxElm.style.width='150px';
     }
    
-    
+}
 });
 
 
 
 document.body.addEventListener('keyup', (eventData) => {
+    console.log("key up");
+  if(dead){
+    boxElm.style.width='200px';
+    jump=false;
+    run=false;
+    attack=false;
+  }else{
 
     if (eventData.code === 'ArrowRight'){
         boxElm.style.width='100px';
@@ -119,6 +138,10 @@ document.body.addEventListener('keyup', (eventData) => {
         
     }
 
+  }
+
+  
+
 });
 
 let angle = 0;
@@ -134,6 +157,7 @@ function doJump(){
 }
 
 function doRun(){
+     console.log("do run");
     let x = boxElm.offsetLeft + dx;
     if ((x + boxElm.offsetWidth)> innerWidth) {
         x = innerWidth - boxElm.offsetWidth;
@@ -188,25 +212,22 @@ setInterval(()=> {
 setInterval(()=> {
     if (!jump && !run && !attack && !dead) {
         drawIdle();
-    }else if (jump){
+    }else if (jump && !dead){
         drawJump();
-    }else if (!jump && run){
+    }else if (!jump && !dead && run){
         drawRun();
-    }else if (!run && attack){
+    }else if (!run && !dead && attack){
         drawAttack();
     }else if (!run && jump && !attack && !dead){
         drawJump();
         
-    }else if(dead){
-        drawDead();
-    }
+     }//else if(dead){
+    //     drawDead();
+    // }
 
 } , (1000/20));
 
 
-setInterval(()=>{
-
-})
 
 /*Moving Background */
 
@@ -292,7 +313,7 @@ background.style.backgroundRepeat = "repeat-x";
 // var newMarginLeft;
 
 // function enmElm1Animation(){
-//     for(var i=0;i<=10;i++){
+//     for(var i=0;i<=10;i++){KeyE
 //         var enmElm1=document.getElementById("enmElm1"+i);
 //         var currentMarginLeft=getComputedStyle(enmElm1).marginLeft;
 //         newMarginLeft=parseInt(currentMarginLeft)-25;
@@ -316,8 +337,6 @@ background.style.backgroundRepeat = "repeat-x";
 //     clearInterval(enmElm1Animation);
 //   };
    
-
-
 
 
 
@@ -420,6 +439,32 @@ const mainEnm = document.createElement('div');
 mainEnm.classList.add('mainEnm');
 document.getElementById('background').append(mainEnm);
 
+
+/*Enermy collison detection*/ 
+
+document.addEventListener('keydown',(eventData)=>{
+   
+        if( boxElm.offsetLeft> enm4.offsetLeft+100 ||
+            boxElm.offsetLeft+150 <enm4.offsetLeft ||
+            boxElm.offsetTop>enm4.offsetTop+100 ||
+            boxElm.offsetTop+200 <enm4.offsetTop){
+                // console.log("no");
+            }else if(eventData.code=='KeyE'){  
+                enm4.style.display='none';       
+                
+            } else{
+                // console.log("yes");   
+                dead=true;
+                setInterval(drawDead,100);
+            }
+
+    
+
+    
+})
+
+   
+       
 
 
 
