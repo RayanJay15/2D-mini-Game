@@ -2,6 +2,17 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Heading;
+    src: url("/font/Vampire\ Wars.ttf");
+
+}
+
+@font-face {
+    font-family: btnFonts;
+    src: url("/font/Hunger\ Games.ttf");
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -17,13 +28,10 @@ body {
     background-image: url('../img/main-backround.webp');
     background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-
-
-
-    
+      
     
 }
 
@@ -138,17 +146,29 @@ body {
 
 }
 
-#play{
-    width: 100px;
+#play,
+#howtoplay,
+#controls{
+    width: 300px;
     height: 50px;
+    font-family:btnFonts,sans-serif ;
     font-size: larger;
     font-weight: bold;
     border: 2px solid black;
     border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: aliceblue;
+   
     
 }
 
-#play:hover{
+#play:hover,
+#howtoplay:hover,
+#controls:hover{
     cursor: pointer;
     opacity: 0.8;
 }
