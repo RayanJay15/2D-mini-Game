@@ -1,3 +1,15 @@
+/*loading Screen*/
+const play=document.getElementById("play");
+const mainScreen=document.getElementById("main-screen");
+play.addEventListener('click',()=>{
+   document.getElementById("main-screen").style.display='none';
+   document.getElementById('background').style.display="block"
+   
+   
+})
+
+
+
 /* Load ninja charcter splites*/
 for(let i = 0; i <= 9; i++){
     const image = new Image();
@@ -374,6 +386,7 @@ function moveEnamie1() {
   if(y<=0)enm1.style.left='1000px';
   let x = enm1.offsetLeft + dx;
   enm1.style.left = `${x}px`;
+
 }
 
 
@@ -456,6 +469,10 @@ document.addEventListener('keydown',(eventData)=>{
                 // console.log("yes");   
                 dead=true;
                 setInterval(drawDead,100);
+                
+                setTimeout(mainScreen.style.display='block',1000)
+                window.location.reload();
+                //document.getElementById('background').style.display="none";
             }
 
     
@@ -463,9 +480,11 @@ document.addEventListener('keydown',(eventData)=>{
     
 })
 
-   
-       
 
+
+
+   
+    
 
 
 
