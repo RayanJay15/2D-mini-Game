@@ -77,6 +77,7 @@ let dead=false;
 
 
 let dx = 0;
+let count=0;
 
 /*Add background audio*/ 
 
@@ -109,7 +110,7 @@ document.body.addEventListener('keydown', (eventData)=> {
         attack=true;
 
     }else if(eventData.code==='KeyD'){
-        boxElm.style.width='200px';Nayani
+        boxElm.style.width='200px';
 
         dead=true;
     }else if(eventData.code==='Space'){
@@ -207,7 +208,10 @@ function drawAttack(){
 let d=0;
 function drawDead(){
     boxElm.style.backgroundImage =`url('img/Dead__00${d++}.png')`;
-    if(d==9) d=0;
+    if(d==9){
+        d=8;
+        count=1;
+    } 
 }
 
 
@@ -268,6 +272,8 @@ function moveBackground() {
 document.addEventListener("keydown", (eventData)=> {
     score=score+1;
     document.getElementById('score').innerHTML="Score : "+score;
+
+    if(!dead){
   
   if (eventData.key === "ArrowLeft") {
     backgroundSpeed = -3; 
@@ -275,17 +281,20 @@ document.addEventListener("keydown", (eventData)=> {
   }else if(eventData.key === "ArrowRight"){
     backgroundSpeed = 3;
   }
+}
 });
 
 
 
 document.addEventListener("keyup", (eventData)=> {
+    
     if (eventData.code === "ArrowLeft") {
         backgroundSpeed = 0; 
         
       }else if(eventData.code === "ArrowRight"){
         backgroundSpeed = 0;
       }
+    
 });
 
 moveBackground();
@@ -468,10 +477,30 @@ document.addEventListener('keydown',(eventData)=>{
             } else{
                 // console.log("yes");   
                 dead=true;
-                setInterval(drawDead,100);
+              
                 
-                setTimeout(mainScreen.style.display='block',1000)
-                window.location.reload();
+                if(count!=1){
+                    var interval=setInterval(drawDead,100);
+
+                }else if(count==1){
+                    clearInterval(interval);
+                    run=false;
+                    jump=false;
+                    attack=false;
+
+                }
+               
+               
+    
+               
+               
+
+
+    
+                
+                
+               // setTimeout(mainScreen.style.display='block',1000)
+               // window.location.reload();
                 //document.getElementById('background').style.display="none";
             }
 
