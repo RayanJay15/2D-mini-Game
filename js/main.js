@@ -108,11 +108,7 @@ document.body.addEventListener('keydown', (eventData)=> {
 
         boxElm.style.width='250px';
         attack=true;
-
-    }else if(eventData.code==='KeyD'){
-        boxElm.style.width='200px';
-
-        dead=true;
+    
     }else if(eventData.code==='Space'){
         boxElm.style.width='150px';
     }
@@ -126,6 +122,10 @@ document.body.addEventListener('keyup', (eventData) => {
     console.log("key up");
   if(dead){
     boxElm.style.width='200px';
+    setInterval(()=>{
+        boxElm.style.top='300px';
+    },400)
+    
     jump=false;
     run=false;
     attack=false;
@@ -356,12 +356,7 @@ background.style.backgroundRepeat = "repeat-x";
 //   ) {
 //     enmElm1AnimationId=-1;
 //     clearInterval(enmElm1Animation);
-//   };
-   
-
-
-
-// function repeatEnamies(){
+//   }; 
 
 //     let enamiePosition=2000;
 //     const enm2=document.createElement('div');
@@ -474,37 +469,22 @@ document.addEventListener('keydown',(eventData)=>{
             }else if(eventData.code=='KeyE'){  
                 enm4.style.display='none';       
                 
-            } else{
-                // console.log("yes");   
-                dead=true;
-              
-                
+            } else{ 
+                dead=true;   
                 if(count!=1){
                     var interval=setInterval(drawDead,100);
-
                 }else if(count==1){
                     clearInterval(interval);
                     run=false;
                     jump=false;
                     attack=false;
 
+ 
+
                 }
-               
-               
+  
     
-               
-               
-
-
-    
-                
-                
-               // setTimeout(mainScreen.style.display='block',1000)
-               // window.location.reload();
-                //document.getElementById('background').style.display="none";
-            }
-
-    
+            }   
 
     
 })
