@@ -65,6 +65,9 @@ const boxElm = document.createElement('div');
 boxElm.classList.add('box');
 document.getElementById('background').append(boxElm);
 
+const lostModal=document.getElementById('lost-game');
+lostModal.style.display='none';
+
 
 
 // document.body.addEventListener('click', ()=> document.body.requestFullscreen());
@@ -426,7 +429,8 @@ function moveEnamie3() {
   let dy=2;
   let y = enm3.offsetTop;
  
-if(y>800)enm3.style.top='10px';
+if(y>800)enm3.style.top='10px';const winModal=document.getElementById('win-game');
+winModal.style.display='none';
    
   let x = enm3.offsetTop + dy;
   enm3.style.top = `${x}px`;
@@ -458,17 +462,22 @@ document.getElementById('background').append(mainEnm);
 
 
 /*Enermy collison detection*/ 
+let killed=0;
 
+const winModal=document.getElementById('win-game');
+winModal.style.display='none';
 document.addEventListener('keydown',(eventData)=>{
    
-        if( boxElm.offsetLeft> enm4.offsetLeft+100 ||
-            boxElm.offsetLeft+150 <enm4.offsetLeft ||
-            boxElm.offsetTop>enm4.offsetTop+100 ||
-            boxElm.offsetTop+200 <enm4.offsetTop){
-                // console.log("no");
-            }else if(eventData.code=='KeyE'){  
-                enm4.style.display='none';       
+    
+    [enm2,enm3,enm4] .forEach(flyEnm => {
+        if( boxElm.offsetLeft> flyEnm.offsetLeft+100 ||
+            boxElm.offsetLeft+150 <flyEnm.offsetLeft ||
+            boxElm.offsetTop>flyEnm.offsetTop+100 ||
+            boxElm.offsetTop+200 <flyEnm.offsetTop){
                 
+        }else if(eventData.code=='KeyE'){  
+            flyEnm.style.display='none';       
+             killed++;   
             } else{ 
                 dead=true;   
                 if(count!=1){
@@ -485,9 +494,76 @@ document.addEventListener('keydown',(eventData)=>{
   
     
             }   
+    });
 
+
+    if( boxElm.offsetLeft> enm1.offsetLeft+50 ||
+        boxElm.offsetLeft+150 <enm1.offsetLeft ||
+        boxElm.offsetTop>enm1.offsetTop+50 ||
+        boxElm.offsetTop+200 <enm1.offsetTop){
+            
+    }else if(eventData.code=='KeyE'){  
+        enm1.style.left='1000px';       
+            
+        } else{ 
+            dead=true;   
+            if(count!=1){
+                var interval=setInterval(drawDead,100);
+            }else if(count==1){
+                clearInterval(interval);
+                run=false;
+                jump=false;
+                attack=false;
+
+
+            }
+
+
+        }   
+
+
+        if( boxElm.offsetLeft> mainEnm.offsetLeft+400 ||
+            boxElm.offsetLeft+30 <mainEnm.offsetLeft ||
+            boxElm.offsetTop>mainEnm.offsetTop+300 ||
+            boxElm.offsetTop+30 <mainEnm.offsetTop){
+                
+        }else if(eventData.code=='KeyE'){  
+            mainEnm.style.display='none';      
+            enm1.style.display='none';      
+            killed++;    
+            } else{ 
+                dead=true;   
+                if(count!=1){
+                    var interval=setInterval(drawDead,100);
+                }else if(count==1){
+                    clearInterval(interval);
+                    run=false;
+                    jump=false;
+                    attack=false;
+    
+    
+    
+                }
+    
+    
+            }   
+
+            if(killed===4){
+                setTimeout(()=>{
+                    run=false;
+                    jump=false;
+                    attack=false;
+                    winModal.style.display='block'
+
+                    
+                },500)                  
+            
+            }
+    
     
 })
+
+
 
 
 
