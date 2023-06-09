@@ -128,6 +128,17 @@ document.body.addEventListener('keyup', (eventData) => {
     setInterval(()=>{
         boxElm.style.top='300px';
     },400)
+    setTimeout(()=>{
+        run=false;
+        jump=false;
+        attack=false;
+        [enm1,enm2,enm3,enm4,mainEnm].forEach(enm=>{
+            enm.style.display='none';
+        });
+        lostModal.style.display='block'
+
+        
+    },500)                  
     
     jump=false;
     run=false;
@@ -498,9 +509,9 @@ document.addEventListener('keydown',(eventData)=>{
 
 
     if( boxElm.offsetLeft> enm1.offsetLeft+50 ||
-        boxElm.offsetLeft+150 <enm1.offsetLeft ||
+        boxElm.offsetLeft+120 <enm1.offsetLeft ||
         boxElm.offsetTop>enm1.offsetTop+50 ||
-        boxElm.offsetTop+200 <enm1.offsetTop){
+        boxElm.offsetTop+170 <enm1.offsetTop){
             
     }else if(eventData.code=='KeyE'){  
         enm1.style.left='1000px';       
