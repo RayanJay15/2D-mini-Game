@@ -575,6 +575,15 @@ document.addEventListener('keydown',(eventData)=>{
 })
 
 
+const btnTryAgain=document.getElementById("btn-tryagain");
+btnTryAgain.addEventListener('click',()=>{
+    alert("wada")
+    document.getElementById("main-screen").style.display='none';
+    location.reload();
+})
+
+
+
 
 
 

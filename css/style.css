@@ -224,3 +224,8 @@ body {
     color: aliceblue;
 }
 
+#btn-tryagain:hover{
+    cursor: pointer !important;
+    opacity: 0.8 !important;
+}
+
