@@ -229,3 +229,21 @@ body {
     opacity: 0.8 !important;
 }
 
+#btn-tryagain,
+#btn-restar{
+    width: 200px;
+    height: 50px;
+    font-family:btnFonts,sans-serif ;
+    font-size: large;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: aliceblue;
+
+}
+
