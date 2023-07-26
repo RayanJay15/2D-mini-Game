@@ -486,7 +486,7 @@ document.addEventListener('keydown',(eventData)=>{
     
             }   
 
-            if(killed>=4){
+            if(killed===4){
                 setTimeout(()=>{
                     run=false;
                     jump=false;
@@ -504,14 +504,28 @@ document.addEventListener('keydown',(eventData)=>{
 
 
 const btnTryAgain=document.getElementById("btn-tryagain");
+const btnRestart=document.getElementById("btn-restart");
 btnTryAgain.addEventListener('click',()=>{
-    location.reload();
-    document.getElementById("main-screen").style.display='none';
+    alert("done");
+    resetGame();
+   // location.reload();
+   // document.getElementById("main-screen").style.display='none';
     
 })
 
 function resetGame(){
+    document.getElementById('score').innerHTML="Score : "+0;
+    dead=false;
+    clearInterval(drawDead);
+    lostModal.style.display='none';
+    mainEnm.style.display='block';
+    enm1.style.display='block';
 
+
+    [enm2,enm3,enm4] .forEach(flyEnm => {
+        flyEnm.style.display='block';
+        flyEnm.style.top='10px';
+    });
 
 }
 
