@@ -364,8 +364,8 @@ function moveEnamie3() {
   let dy=2;
   let y = enm3.offsetTop;
  
-if(y>800)enm3.style.top='10px';const winModal=document.getElementById('win-game');
-winModal.style.display='none';
+if(y>800)enm3.style.top='10px';
+
    
   let x = enm3.offsetTop + dy;
   enm3.style.top = `${x}px`;
@@ -394,6 +394,9 @@ setInterval(moveEnamie4, 50);
 const mainEnm = document.createElement('div');
 mainEnm.classList.add('mainEnm');
 document.getElementById('background').append(mainEnm);
+
+
+
 
 
 /*Enermy collison detection*/ 
@@ -483,7 +486,7 @@ document.addEventListener('keydown',(eventData)=>{
     
             }   
 
-            if(killed===4){
+            if(killed>=4){
                 setTimeout(()=>{
                     run=false;
                     jump=false;
@@ -508,7 +511,8 @@ btnTryAgain.addEventListener('click',()=>{
 })
 
 function resetGame(){
-    
+
+
 }
 
 
