@@ -512,7 +512,26 @@ btnTryAgain.addEventListener('click',()=>{
     
 })
 
+btnRestart.addEventListener('click',()=>{
+    winModal.style.display='none';
+    
+
+   killed=0;
+   count=0;
+   score=0;
+   document.getElementById('score').innerHTML="Score : "+0;
+   mainEnm.style.display='block';      
+    enm1.style.display='block';     
+    enm2.style.display='block';     
+    enm3.style.display='block';     
+    enm4.style.display='block';     
+    boxElm.style.left='100px';
+   
+})
+
 function resetGame(){
+    dead=false;
+    
     killed=0;
     count=0;
     score=0;
