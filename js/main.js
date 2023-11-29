@@ -143,7 +143,7 @@ document.body.addEventListener('keyup', (eventData) => {
     jump=false;
     run=false;
     attack=false;
-  }else{
+  }else if(!dead){
 
     if (eventData.code === 'ArrowRight'){
         boxElm.style.width='100px';
@@ -515,7 +515,6 @@ btnTryAgain.addEventListener('click',()=>{
 btnRestart.addEventListener('click',()=>{
     winModal.style.display='none';
     
-
    killed=0;
    count=0;
    score=0;
@@ -530,6 +529,7 @@ btnRestart.addEventListener('click',()=>{
 })
 
 function resetGame(){
+    
     dead=false;
     
     killed=0;
@@ -540,12 +540,19 @@ function resetGame(){
     
     lostModal.style.display='none';
     mainEnm.style.display='block';
+    boxElm.style.left="100px";
     enm1.style.display='block';
 
     [enm2,enm3,enm4] .forEach(flyEnm => {
         flyEnm.style.display='block';
         flyEnm.style.top='10px';
     });
+
+    
+      
+    
+   
+    
 
 }
 
