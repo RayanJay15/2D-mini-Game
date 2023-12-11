@@ -540,6 +540,7 @@ function resetGame(){
     
     lostModal.style.display='none';
     mainEnm.style.display='block';
+    boxElm.style.width='100px'
     boxElm.style.left="100px";
     enm1.style.display='block';
 
