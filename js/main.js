@@ -1,12 +1,32 @@
 /*loading Screen*/
 const play=document.getElementById("play");
+const howtoplay=document.getElementById("howtoplay");
+const controls=document.getElementById("controls");
 const mainScreen=document.getElementById("main-screen");
 play.addEventListener('click',()=>{
    document.getElementById("main-screen").style.display='none';
    document.getElementById('background').style.display="block"
    
    
-})
+});
+const howToPlayToast=document.getElementById("HowToPlayToast");
+const info=document.getElementById("info");
+info.style.display="none";
+
+
+howtoplay.addEventListener('click',()=>{
+    alert("working");
+   document.getElementById("info").style.display="block";
+    document.getElementById("btn-close").addEventListener('click',()=>{
+        document.getElementById("info").style.display="none"; 
+    })
+    
+    
+    
+ })
+
+
+
 
 
 
@@ -540,7 +560,7 @@ function resetGame(){
     
     lostModal.style.display='none';
     mainEnm.style.display='block';
-    boxElm.style.width='100px'
+    boxElm.style.width='100px';
     boxElm.style.left="100px";
     enm1.style.display='block';
 
