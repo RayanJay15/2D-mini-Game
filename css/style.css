@@ -59,7 +59,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     bottom: 70px;
-    border: 1px solid black;
+    
     
 }
 
@@ -74,7 +74,7 @@ body {
     background-size: cover;
     bottom: 90px;
     transform: rotateY('90dec');
-    border: 1px solid blue;
+    
     
 
 }
@@ -245,5 +245,11 @@ body {
     margin-top: 20px;
     background-color: aliceblue;
 
+}
+
+#discription{
+    border: 20px;
+    font-size: medium;
+    margin: 40px;
 }
 

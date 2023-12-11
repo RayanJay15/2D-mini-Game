@@ -3,27 +3,43 @@ const play=document.getElementById("play");
 const howtoplay=document.getElementById("howtoplay");
 const controls=document.getElementById("controls");
 const mainScreen=document.getElementById("main-screen");
+
+
 play.addEventListener('click',()=>{
    document.getElementById("main-screen").style.display='none';
    document.getElementById('background').style.display="block"
    
    
 });
+
+
 const howToPlayToast=document.getElementById("HowToPlayToast");
 const info=document.getElementById("info");
+const controlinfo=document.getElementById("control-info");
 info.style.display="none";
 
 
 howtoplay.addEventListener('click',()=>{
-    alert("working");
+  
    document.getElementById("info").style.display="block";
     document.getElementById("btn-close").addEventListener('click',()=>{
         document.getElementById("info").style.display="none"; 
     })
     
-    
+   
     
  })
+
+ controls.addEventListener('click',()=>{
+  
+    document.getElementById("control-info").style.display="block";
+     document.getElementById("btn-got").addEventListener('click',()=>{
+         document.getElementById("control-info").style.display="none"; 
+     })
+     
+     
+     
+  })
 
 
 
@@ -35,18 +51,12 @@ for(let i = 0; i <= 9; i++){
     const image = new Image();
     image.src  = `img/Attack__00${i}.png`;
 }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Climb_00${i}.png`;
-// }
+
 for(let i = 0; i < 10; i++){
     const image = new Image();
     image.src  = `img/Dead__00${i}.png`;
 }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Glide_00${i}.png`;
-// }
+
 for(let i = 0; i < 10; i++){
     const image = new Image();
     image.src  = `img/Idle__00${i}.png`;
@@ -55,30 +65,12 @@ for(let i=0;i<10;i++){
     const image=new Image();
     image.src =`img/Jump__00${i}.png`;
 }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Jump_Attack__00${i}.png`;
-// }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Jump_Throw__00${i}.png`;
-// }
+
 for(let i = 0; i < 10; i++){
     const image = new Image();
     image.src  = `img/Run__00${i}.png`;
 }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Slide__00${i}.png`;
-// }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Throw__00${i}.png`;
-// }
-// for(let i = 0; i < 10; i++){
-//     const image = new Image();
-//     image.src  = `img/Run__00${i}.png`;
-// }
+
 
 var background = document.getElementById("background");
 const boxElm = document.createElement('div');
@@ -90,7 +82,7 @@ lostModal.style.display='none';
 
 
 
-// document.body.addEventListener('click', ()=> document.body.requestFullscreen());
+//document.body.addEventListener('click', ()=> document.body.requestFullscreen());
 
 let jump = false;
 let run = false;
@@ -121,7 +113,7 @@ document.body.addEventListener('keydown', (eventData)=> {
         boxElm.style.width='150px';
         run = true;
         dx = 2;
-        // console.log(boxElm.offsetLeft);
+        
     }else if (eventData.code === 'ArrowLeft'){
         boxElm.style.transform = 'rotateY(180deg)';
         boxElm.style.width='150px';
@@ -271,9 +263,7 @@ setInterval(()=> {
     }else if (!run && jump && !attack && !dead){
         drawJump();
         
-     }//else if(dead){
-    //     drawDead();
-    // }
+     }
 
 } , (1000/20));
 
@@ -317,7 +307,6 @@ document.addEventListener("keydown", (eventData)=> {
   }
 }
 });
-
 
 
 document.addEventListener("keyup", (eventData)=> {
@@ -527,8 +516,7 @@ const btnTryAgain=document.getElementById("btn-tryagain");
 const btnRestart=document.getElementById("btn-restart");
 btnTryAgain.addEventListener('click',()=>{
     resetGame();
-   // location.reload();
-   // document.getElementById("main-screen").style.display='none';
+   
     
 })
 
