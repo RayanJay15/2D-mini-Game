@@ -17,7 +17,7 @@ const howToPlayToast=document.getElementById("HowToPlayToast");
 const info=document.getElementById("info");
 const controlinfo=document.getElementById("control-info");
 info.style.display="none";
-controlinfo.style.display="none";
+document.getElementById("control-info").style.display="none";
 
 
 howtoplay.addEventListener('click',()=>{
