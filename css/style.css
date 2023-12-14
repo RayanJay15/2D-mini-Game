@@ -253,3 +253,8 @@ body {
     margin: 40px;
 }
 
+#lost-game,
+#win-game{
+    z-index: 999;
+}
+
