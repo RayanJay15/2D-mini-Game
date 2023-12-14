@@ -16,8 +16,9 @@
     font-family: btnFonts;
     font-style: normal;
     font-weight: normal;
-    src: local('Hunger Games'), url('Hunger Games.woff') format('woff');
+    src: local('Hunger Games'), url('https://raw.githubusercontent.com/rayanjay15/2d-mini-game/master/Hunger%20Games.woff') format('woff');
 }
+
 
 body {
     min-height: 100vh;
