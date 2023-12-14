@@ -254,7 +254,9 @@ body {
 }
 
 #lost-game,
-#win-game{
+#win-game,
+#info,
+#control-info{
     z-index: 999;
 }
 
