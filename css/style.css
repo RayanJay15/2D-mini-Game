@@ -12,6 +12,12 @@
     font-family: btnFonts;
     src: url("/font/Hunger\ Games.ttf");
 }
+@font-face {
+    font-family: 'Hunger Games';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Hunger Games'), url('Hunger Games.woff') format('woff');
+}
 
 body {
     min-height: 100vh;
