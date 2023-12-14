@@ -13,7 +13,7 @@
     src: url("/font/Hunger\ Games.ttf");
 }
 @font-face {
-    font-family: 'btnFonts';
+    font-family: btnFonts;
     font-style: normal;
     font-weight: normal;
     src: local('Hunger Games'), url('Hunger Games.woff') format('woff');
