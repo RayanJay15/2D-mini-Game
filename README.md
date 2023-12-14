@@ -1,4 +1,4 @@
-# NINJA Warrior
+# NINJA WARRIOR
 
 ## Goal
 Your goal is to defeat three flying vampire bats and a formidable zombie frog in this game, using a katana. 
