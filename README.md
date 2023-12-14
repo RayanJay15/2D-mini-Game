@@ -16,4 +16,5 @@ while carefully navigating the flames to get closer to the frog for the final bl
 
 ## Screenshots
 ![Title Screen](https://github.com/RayanJay15/2d-mini-game/blob/main/Screen%20Shots/Screenshot%20from%202023-12-14%2009-15-26.png)
-!
+![Game play](https://github.com/RayanJay15/2d-mini-game/blob/main/Screen%20Shots/Screenshot%20from%202023-12-14%2009-15-51.png)
+![Win Game](https://github.com/RayanJay15/2d-mini-game/blob/main/Screen%20Shots/Screenshot%20from%202023-12-14%2009-16-36.png)
