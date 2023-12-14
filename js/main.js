@@ -501,7 +501,7 @@ document.addEventListener('keydown',(eventData)=>{
                     jump=false;
                     attack=false;
                     winModal.style.display='block'
-
+                    Full
                     
                 },500)                  
             
